@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro Inspetor</title>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#nome").blur(function() {
+		var nome = $(this).val();
+		$.get("/EscrevendoBaseadoExisteBanco/Controle",
+				{
+					cmd: "verificaInspetor",
+					nome: nome
+				},
+				
+		        function(data){
+					
+				}
+		);
+		
+	});
+});
+
+
+</script>
+</head>
+<body>
+<h2>Cadastro Inspector</h2>
+<hr />
+<form action="Controle?cmd=cadastrar" method="post"></form>
+	<input type="text" placeholder=" Digite nome :" name="nome" id="nome"  /><br />
+	<input type="text" placeholder=" Digite idade :" name="idade" id="idade" /><br />
+	<input type="submit" value="Enviar Dados" />
+</body>
+</html>
